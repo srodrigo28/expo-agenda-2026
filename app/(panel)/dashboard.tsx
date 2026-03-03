@@ -4,6 +4,7 @@ import { useRouter, useNavigation } from 'expo-router';
 import { DrawerActions } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import { agendamentosMock } from '../../data/clientes';
 
 const DAYS = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'];
 
@@ -11,6 +12,11 @@ export default function DashboardScreen() {
     const router = useRouter();
     const navigation = useNavigation();
     const [selectedDay, setSelectedDay] = useState('Seg');
+
+    // Filter appointments locally based on the selected day
+    const compromissosDoDia = agendamentosMock.filter(
+        (agendamento) => agendamento.diaSemana === selectedDay
+    );
 
     const handleLogout = () => {
         router.replace('/');
@@ -82,45 +88,23 @@ export default function DashboardScreen() {
                 {/* Example Appointments */}
                 <Text style={styles.sectionTitle}>Compromissos - {selectedDay}</Text>
 
-                <View style={styles.appointmentCard}>
-                    <View style={styles.timeBadge}>
-                        <Text style={styles.timeText}>07:00</Text>
-                    </View>
-                    <View style={styles.appointmentInfo}>
-                        <Text style={styles.clientName}>Aline de Oliveira</Text>
-                        <Text style={styles.serviceName}>Reunião Inicial</Text>
-                    </View>
-                </View>
-
-                <View style={styles.appointmentCard}>
-                    <View style={styles.timeBadge}>
-                        <Text style={styles.timeText}>09:00</Text>
-                    </View>
-                    <View style={styles.appointmentInfo}>
-                        <Text style={styles.clientName}>João da Silva</Text>
-                        <Text style={styles.serviceName}>Reunião Inicial</Text>
-                    </View>
-                </View>
-
-                <View style={styles.appointmentCard}>
-                    <View style={styles.timeBadge}>
-                        <Text style={styles.timeText}>14:30</Text>
-                    </View>
-                    <View style={styles.appointmentInfo}>
-                        <Text style={styles.clientName}>Maria Souza</Text>
-                        <Text style={styles.serviceName}>Acompanhamento</Text>
-                    </View>
-                </View>
-
-                <View style={styles.appointmentCard}>
-                    <View style={styles.timeBadge}>
-                        <Text style={styles.timeText}>16:30</Text>
-                    </View>
-                    <View style={styles.appointmentInfo}>
-                        <Text style={styles.clientName}>Selma Oliveira</Text>
-                        <Text style={styles.serviceName}>Acompanhamento</Text>
-                    </View>
-                </View>
+                {compromissosDoDia.length > 0 ? (
+                    compromissosDoDia.map((agendamento) => (
+                        <View key={agendamento.id} style={styles.appointmentCard}>
+                            <View style={styles.timeBadge}>
+                                <Text style={styles.timeText}>{agendamento.horario}</Text>
+                            </View>
+                            <View style={styles.appointmentInfo}>
+                                <Text style={styles.clientName}>{agendamento.nomeCliente}</Text>
+                                <Text style={styles.serviceName}>{agendamento.servico}</Text>
+                            </View>
+                        </View>
+                    ))
+                ) : (
+                    <Text style={{ color: '#9ca3af', marginTop: 16, textAlign: 'center' }}>
+                        Não há compromissos para este dia.
+                    </Text>
+                )}
             </ScrollView>
 
             {/* Floating Action Button */}
