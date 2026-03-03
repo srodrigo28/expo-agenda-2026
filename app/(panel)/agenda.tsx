@@ -159,6 +159,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 24,
         paddingTop: 50,
         paddingBottom: 20,
+        alignSelf: 'center',
+        width: '100%',
+        maxWidth: 500,
     },
     menuIcon: {
         padding: 4,
@@ -177,6 +180,9 @@ const styles = StyleSheet.create({
     },
     calendarContainer: {
         marginBottom: 10,
+        alignSelf: 'center',
+        width: '100%',
+        maxWidth: 500,
     },
     calendarScroll: {
         paddingHorizontal: 16,
@@ -229,6 +235,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 24,
         paddingTop: 16,
         paddingBottom: 40,
+        alignSelf: 'center',
+        width: '100%',
+        maxWidth: 500,
     },
     timelineRow: {
         flexDirection: 'row',
