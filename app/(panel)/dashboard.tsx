@@ -132,6 +132,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 24,
         paddingTop: 40,
         paddingBottom: 20,
+        alignSelf: 'center',
+        width: '100%',
+        maxWidth: 500,
     },
     headerLeft: {
         flexDirection: 'row',
@@ -152,7 +155,7 @@ const styles = StyleSheet.create({
     },
     logoutText: { color: '#f87171', fontWeight: '600', fontSize: 12 },
 
-    daysContainer: { paddingVertical: 10 },
+    daysContainer: { paddingVertical: 10, alignSelf: 'center', width: '100%', maxWidth: 500 },
     daysScroll: { paddingHorizontal: 20 },
     dayButton: {
         width: 60,
@@ -172,7 +175,7 @@ const styles = StyleSheet.create({
     dayText: { color: '#9ca3af', fontWeight: '600', fontSize: 16 },
     dayTextSelected: { color: '#ffffff', fontWeight: 'bold' },
 
-    content: { padding: 24, paddingBottom: 100 },
+    content: { padding: 24, paddingBottom: 100, alignSelf: 'center', width: '100%', maxWidth: 500 },
     cardRow: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 24 },
     card: {
         width: '48%',

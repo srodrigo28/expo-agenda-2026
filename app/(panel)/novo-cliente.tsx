@@ -273,6 +273,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#0f172a',
         borderBottomWidth: 1,
         borderBottomColor: 'rgba(255,255,255,0.05)',
+        alignSelf: 'center',
+        width: '100%',
+        maxWidth: 500,
     },
     backButton: {
         width: 40,
@@ -287,6 +290,9 @@ const styles = StyleSheet.create({
     content: {
         padding: 24,
         paddingBottom: 40,
+        alignSelf: 'center',
+        width: '100%',
+        maxWidth: 500,
     },
     row: {
         flexDirection: 'row',
@@ -345,6 +351,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#0f172a',
         borderTopWidth: 1,
         borderTopColor: 'rgba(255,255,255,0.05)',
+        alignSelf: 'center',
+        width: '100%',
+        maxWidth: 500,
     },
     saveButton: {
         borderRadius: 16,
